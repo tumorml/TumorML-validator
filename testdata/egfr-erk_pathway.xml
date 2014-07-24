@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<tumorml xmlns="http://www.tumorml.org/tumorml/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://raw.github.com/tumorml/TumorML-schema/master tumorml.xsd" id="urn:miriam:tumor:000001">
+    <header>
+        <title>EGFR-ERK Pathway</title>
+        <description>
+            This is a multiscale agent-based model for investigating expansion dynamics of epithelial cancers (e.g., glioma, NSCLC) within a two-dimensional microenvironment. At the molecular level, we present a specific EGFR-ERK intracellular signaling pathway. The goal of this work is to provide useful insights into the quantitative understanding of the relationship between signaling properties of underlying molecular changes and the multi-cellular responses they may trigger.
+
+            This particular version of the model has been first applied to non small cell lung cancer (NSCLC) and has been published in Theoretical Biology and Medical Modelling 2007, 4:50. (http://www.tbiomed.com/content/4/1/50). A follow-up work on cross scale sensitivity analysis of this model has been published in BioSystems, 92(3): 249-258, 2008.
+        </description>
+        <creator>
+            <person id="urn:tumorml.org:user:000001">
+                 <fullname>Zhihui Wang</fullname>
+            </person>
+        </creator>
+        <publisher>
+               <person id="urn:tumorml.org:organisation:000001">
+                   <fullname>Complex Biosystems Modeling Laboratory (CBML) Mass. General Hospital</fullname>
+               </person>
+        </publisher>
+        <contributor>
+             <person id="urn:orcid:0000-0003-2850-3614">
+                 <fullname>Thomas S. Deisboeck, M.D.</fullname>
+             </person>
+        </contributor>
+        <date>2012-06-22T00:00:00+00:00</date>
+        <math>continuous</math>
+        <multiScale>bottomUp</multiScale>
+        <singleScale>subcellular</singleScale>
+        <cancer>lung</cancer>
+        <homogeneity>homogeneous</homogeneity>
+        <treatmentIncluded>false</treatmentIncluded>
+    </header>
+    <model>
+        <parameters>
+             <in name="egf" optional="0">
+                 <value type="double" />
+             </in>
+             <out name="cell_cycle_time" optional="0">
+                 <value type="double" />
+             </out>
+             <out name="PLC_g" optional="0">
+                 <value type="double" />
+             </out>
+        </parameters>
+        <implementation id="urn:miriam:cvit.org:cmef:0.919920521935164">
+             <title>
+                 EGFR-ODE Model for EC revision #3 (6/25/2012) from Massachusetts General Hospital. Calculates Cell Cycle Time for EGF concentration. (Updated for command line parameters)
+             </title>
+             <date>2012-06-25T00:00:00+00:00</date>
+             <package name="EGFR_ODE_EC" checksum="">
+                  <file name="EGFR_ODE_EC" source="urn:tumorml.org:file:000001" />
+             </package>
+             <command>EGFR_ODE_EC $egf</command>
+             <requirements>
+                 <operatingSystem>linux</operatingSystem>
+                 <CPUArchitecture>x86_64</CPUArchitecture>
+                 <language>cpp</language>
+             </requirements>
+         </implementation>
+    </model>
+</tumorml>
